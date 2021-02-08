@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Artist(models.Model):
     name = models.CharField(max_length=200, unique=True)
 
@@ -24,7 +25,7 @@ class Album(models.Model):
     artists = models.ManyToManyField(Artist, related_name='albums', blank=True)
 
     def __str__(self):
-        return self.title
+        return self.picture
 
 
 class Booking(models.Model):
@@ -35,4 +36,3 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.contact.name
-
