@@ -21,18 +21,17 @@ class Album(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     available = models.BooleanField(default=True)
     title = models.CharField(max_length=200)
-    picture = models.URLField()
+    picture = models.TextField()
     artists = models.ManyToManyField(Artist, related_name='albums', blank=True)
 
     def __str__(self):
-        return self.picture
-
+        return self.title
 
 class Booking(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     contacted = models.BooleanField(default=False)
-    contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
     album = models.OneToOneField(Album, on_delete=models.CASCADE)
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.contact.name
