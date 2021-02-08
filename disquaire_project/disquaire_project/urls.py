@@ -20,12 +20,13 @@ from store import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^store/', include('store.urls', namespace='store')),
+    url(r'^store/', include(('store.urls', 'store'), namespace='store')),
     url(r'^admin/', admin.site.urls)
 ]
 
 if settings.DEBUG:
     import debug_toolbar
+
     urlpatterns = [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+                      url(r'^__debug__/', include(debug_toolbar.urls)),
+                  ] + urlpatterns
