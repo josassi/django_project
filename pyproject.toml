@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "disquaire_project"
+version = "0.1"
+description = "package used for holding reusable internal tools with intermediate commit policy"
+authors = ["Johan Sassi <johan.s@hellowatt.fr>"]
+
+[tool.poetry.dependencies]
+python = "~3.8.5"
+Django = "^3.1.6"
+psycopg2-binary = "^2.8.6"
+django-debug-toolbar = "^3.2"
